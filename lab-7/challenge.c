@@ -1,14 +1,38 @@
 #include <stdio.h>
-int main()
-{
-    int i=5;
-    int num[4];
-    int *ptr=&num;
-    printf("Enter %d integers:",i);
-    scanf("%d %d %d %d %d",&num[0],&num[1],&num[2],&num[3],&num[4]);     
-    for(int i=0;i<5;i++)
-    {
-      if()
+
+void swap(int *a, int *b) {
+    int temp = *a;
+    *a = *b;
+    *b = temp;
+}
+
+void bubblesort(int *pi, int n) {
+    for (int i = 0; i < n - 1; i++) {
+        for (int j = 0; j < n - i - 1; j++) {
+            if (*(pi + j) > *(pi + j + 1)) {
+                swap(pi + j, pi + j + 1);
+            }
+        }
     }
-   return 0;
+}
+
+int main() {
+    int num[5];
+    int *pt = num;
+    int size = 5;
+
+    printf("Enter 5 integers: ");
+    for (int i = 0; i < size; i++) {
+        scanf("%d", pt + i);
+    }
+
+    bubblesort(pt, size);
+
+    printf("Sorted: ");
+    for (int i = 0; i < size; i++) {
+        printf("%d ", *(pt + i));
+    }
+    printf("\n");
+
+    return 0;
 }
